@@ -48,9 +48,9 @@ export class Sequence {
         const contract = await factory.deploy(
             'DNToken Test',
             'DNT',
-            BigInt(maxMint),
-            BigInt(publicPrice),
-            BigInt(initialTokenSupply),
+            maxMint,
+            publicPrice,
+            initialTokenSupply,
             this.wallet.address
         )
         await contract.waitForDeployment()
