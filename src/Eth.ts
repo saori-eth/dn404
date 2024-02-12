@@ -16,10 +16,10 @@ export class Eth {
     constructor(driver: Driver) {
         this.driver = driver
         this.provider = new ethers.JsonRpcProvider(
-            MODE === 'local' ? LOCAL_HTTP : BASE_HTTP
+            MODE === 'dev' ? LOCAL_HTTP : BASE_HTTP
         )
         this.wallet = new ethers.Wallet(
-            MODE === 'local' ? DEV_PK : PROD_PK,
+            MODE === 'dev' ? DEV_PK : PROD_PK,
             this.provider
         )
     }

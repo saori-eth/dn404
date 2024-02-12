@@ -9,3 +9,5 @@ export class Driver {
         this.sequence = new Sequence(this)
     }
 }
+
+new Driver()
