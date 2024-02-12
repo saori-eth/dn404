@@ -22,6 +22,7 @@ contract DNTest is Test {
     uint96 initialTokenSupply;
     address initialSupplyOwner;
     DNToken token;
+
     function setUp() public {
         _owner = address(0x11);
         name = 'DN404';
@@ -32,7 +33,14 @@ contract DNTest is Test {
         initialSupplyOwner = _owner;
         vm.prank(_owner);
 
-        token = new DNToken(name, symbol, maxMint, publicPrice, initialTokenSupply, initialSupplyOwner);
+        token = new DNToken(
+            name,
+            symbol,
+            maxMint,
+            publicPrice,
+            initialTokenSupply,
+            initialSupplyOwner
+        );
     }
 
     function testDeployment() public {
