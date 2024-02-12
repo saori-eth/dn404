@@ -7,12 +7,12 @@
         "build": "tsc",
         "_start": "pnpm run env -- node dist/index.js",
         "start": "pnpm build && pnpm _start",
-        "_dev": "nodemon --exec --watch src --ext ts --exec \"pnpm build && pnpm _start\"",
+        "_dev": "nodemon --exec --watch src --ext ts --exec \"pnpm copy && pnpm build && pnpm _start\"",
         "dev": "pnpm anvil & sleep 4 && pnpm _dev",
-        "env": "dotenv -e ../../.env",
+        "env": "dotenv -e ./.env",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "_anvil": "cd forge && anvil --block-time 1 --chain-id 9999 --fork-url $SEPOLIA_HTTP --silent",
-        "copy": "cp -f ./forge/out/TestToken.sol/TestToken.json ./src/abi/",
+        "_anvil": "cd forge && anvil --block-time 1 --chain-id 9999 --fork-url $BASE_HTTP --silent",
+        "copy": "cp -f ./forge/out/DNToken.sol/DNToken.json ./src/abi/",
         "anvil": "pnpm run env -- pnpm _anvil",
         "prettier-format": "prettier --write ."
     },
@@ -24,6 +24,7 @@
         "typescript": "^5.2.2"
     },
     "dependencies": {
+        "contracts": "link:",
         "prettier-plugin-solidity": "^1.3.1"
     }
 }
